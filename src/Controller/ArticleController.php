@@ -7,6 +7,7 @@ use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
@@ -72,4 +73,20 @@ class ArticleController extends AbstractController
         dump($article); die;
     }
 
+    /**
+     * @Route("/articles/delete/{id}", name="delete_article")
+     */
+    public function deleteArticle($id, ArticleRepository $articleRepository,EntityManagerInterface $entityManager)
+    {
+        $article = $articleRepository->find($id);
+
+        if (!is_null($article)) {
+            $entityManager->remove($article);
+            $entityManager->flush();
+
+            return new Response('supprimé');
+        }else{
+            return new Response('déjà supprimé');
+        }
+    }
 }
