@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>{{ article.title }}</title>
+{% endblock %}
+
+{% block main %}
+
+    {% if article.isPublished %}
+
+        <article class="article-single">
+            <img class="article-img" src="{{ article.image }}" alt="{{ article.title }}">
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.description }}</p>
+            <p>Publié le {{ article.publishedAt | date('d-m-y') }}</p>
+        </article>
+
+    {% endif %}
+
+{% endblock %}
