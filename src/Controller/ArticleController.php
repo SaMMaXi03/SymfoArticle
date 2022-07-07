@@ -13,9 +13,9 @@ class ArticleController extends AbstractController
 {
 
     /**
-     * @Route("/article", name="article")
+     * @Route("/article/{id}", name="article")
      */
-    public function showArticle(ArticleRepository $articleRepository)
+    public function showArticle(ArticleRepository $articleRepository, $id)
     {
         // récupérer depuis la base de données un article
         // en fonction d'un ID
@@ -24,9 +24,12 @@ class ArticleController extends AbstractController
         // la classe Repository me permet de faire des requête SELECT
         // dans la table associée
         // la méthode permet de récupérer un élément par rapport à son id
-        $article = $articleRepository->find(1);
+        $article = $articleRepository->find($id);
 
-        dd($article);
+        return $this->render('show_article.html.twig', [
+            'article' => $article
+        ]);
+
     }
 
     /**
@@ -36,7 +39,9 @@ class ArticleController extends AbstractController
     {
         $articles = $articleRepository->findAll();
 
-        dd($articles);
+        return $this->render('list_articles.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
 

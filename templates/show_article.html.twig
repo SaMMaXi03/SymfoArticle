@@ -9,9 +9,8 @@
     {% if article.isPublished %}
 
         <article class="article-single">
-            <img class="article-img" src="{{ article.image }}" alt="{{ article.title }}">
             <h1>{{ article.title }}</h1>
-            <p>{{ article.description }}</p>
+            <p>{{ article.content }}</p>
             <p>Publié le {{ article.publishedAt | date('d-m-y') }}</p>
         </article>
 
