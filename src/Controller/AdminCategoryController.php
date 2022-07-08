@@ -12,11 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CategoryController extends AbstractController
+class AdminCategoryController extends AbstractController
 {
 
     /**
-     * @Route("/insert-category", name="insert_category")
+     * @Route("/admin/insert-category", name="admin_insert_category")
      */
     public function insertCategory(EntityManagerInterface $entityManager)
     {
@@ -32,7 +32,7 @@ class CategoryController extends AbstractController
     }
 
         /**
-         * @Route("categories", name="categories")
+         * @Route("/admin/categories", name="admin_categories")
          */
         public function listCategories(CategoryRepository $categoryRepository)
         {
@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("category/{id}",name="show_category")
+     * @Route("/admin/category/{id}",name="admin_show_category")
      */
     public function showCategory($id, CategoryRepository $categoryRepository)
     {
