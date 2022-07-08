@@ -9,7 +9,7 @@
             {% if article.isPublished %}
                 <article class="article">
                     <h1>{{ article.title }}</h1>
-                    <a href="{{ path('article', {'id': article.id }) }}">Clique j't'ai dit</a>
+                    <a href="{{ path('admin_article', {'id': article.id }) }}">Clique j't'ai dit</a>
                 </article>
             {% endif %}
 
