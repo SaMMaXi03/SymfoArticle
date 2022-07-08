@@ -37,7 +37,7 @@ class AdminCategoryController extends AbstractController
         {
            $categories = $categoryRepository->findAll();
 
-           return $this->render('list_categories.html.twig', [
+           return $this->render('admin/list_categories.html.twig', [
                'categories' => $categories
         ]);
     }
@@ -49,11 +49,27 @@ class AdminCategoryController extends AbstractController
     {
         $category = $categoryRepository->find($id);
 
-        return $this->render('show_category.html.twig',[
+        return $this->render('admin/show_category.html.twig',[
             'category' => $category
         ]);
     }
 
+    /**
+     * @Route("/admin/categories/delete/{id}", name="admin_delete_category")
+     */
+    public function deleteArticle($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManager)
+    {
+        $category = $categoryRepository->find($id);
+
+        if (!is_null($category)) {
+            $entityManager->remove($category);
+            $entityManager->flush();
+
+            return $this->redirectToRoute("admin_categories");
+        }else{
+            return new Response('déjà supprimé');
+        }
+    }
 
 
 
