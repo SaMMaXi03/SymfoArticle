@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -88,5 +89,21 @@ class ArticleController extends AbstractController
         }else{
             return new Response('déjà supprimé');
         }
+    }
+
+    /**
+     * @Route("/articles/update/{id}", name="update_article")
+     */
+    public function updateArticle($id, ArticleRepository $articleRepository, EntityManagerInterface $entityManager)
+    {
+       $article = $articleRepository->find($id);
+
+       $article->setTitle("title updated");
+
+       $entityManager->persist($article);
+       $entityManager->flush();
+
+       return new Response('Update');
+
     }
 }
