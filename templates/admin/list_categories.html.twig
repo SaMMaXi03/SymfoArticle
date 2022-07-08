@@ -6,7 +6,7 @@
         <article>
             <h2 style="color: {{ category.color }};">{{ category.title }}</h2>
             <a href="{{ path('admin_show_category', {'id':category.id}) }}">Rencontre les camioneurs murs et chauds</a>
-            <a href="{{ path('admin_delete_category', {'id':category.id}) }}">Supprimé</a>
+            <a href="{{ path('admin_delete_category', {'id':category.id}) }}">Supprimer</a>
         </article>
     {% endfor %}
 
