@@ -15,7 +15,7 @@ class AdminArticleController extends AbstractController
 {
 
     /**
-     * @Route("/admin/article/{id}", name="admin_article")
+     * @Route("/admin/article/{id}", name="admin_article", requirements={"page"="\d+"})
      */
     public function showArticle(ArticleRepository $articleRepository, $id)
     {
@@ -28,7 +28,7 @@ class AdminArticleController extends AbstractController
         // la méthode permet de récupérer un élément par rapport à son id
         $article = $articleRepository->find($id);
 
-        return $this->render('admin/list_articles.html.twig', [
+        return $this->render('admin/show_article.html.twig', [
             'article' => $article
         ]);
 

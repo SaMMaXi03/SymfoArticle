@@ -2,6 +2,10 @@
 
 {% block main %}
 
+    <section>
+        <a href="{{ path('admin_insert_category') }}">Créer un article</a>
+    </section>
+
     {% for category in categories %}
         <article>
             <h2 style="color: {{ category.color }};">{{ category.title }}</h2>

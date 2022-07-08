@@ -2,18 +2,24 @@
 
 {% block main %}
 
+    <section>
+        <a href="{{ path('admin_insert_article') }}">Créer un article</a>
+    </section>
+
     <section class="articles">
 
         {% for article in articles %}
-
-            {% if article.isPublished %}
-                <article class="article">
-                    <h1>{{ article.title }}</h1>
-                    <a href="{{ path('admin_article', {'id': article.id }) }}">Clique j't'ai dit</a>
-                    <a href="{{ path('admin_delete_article', {'id':article.id}) }}">Supprimer</a>
-                </article>
+            {% if article %}
+                {% if article.isPublished %}
+                    <article class="article">
+                        <h1>{{ article.title }}</h1>
+                        <a href="{{ path('admin_article', {'id': article.id }) }}">Clique j't'ai dit</a>
+                        <a href="{{ path('admin_delete_article', {'id': article.id}) }}">Supprimer</a>
+                    </article>
+                {% endif %}
+            {% else %}
+                <p>Y'a rien</p>
             {% endif %}
-
         {% endfor %}
     </section>
 

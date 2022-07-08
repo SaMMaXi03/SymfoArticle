@@ -15,7 +15,7 @@ class AdminCategoryController extends AbstractController
 {
 
     /**
-     * @Route("/admin/insert-category", name="admin_insert_category")
+     * @Route("/admin/insert-category", name="admin_insert_category", requirements={"page"="\d+"})
      */
     public function insertCategory(EntityManagerInterface $entityManager)
     {
