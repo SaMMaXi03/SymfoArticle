@@ -26,18 +26,12 @@ class AdminCategoryController extends AbstractController
         if (!empty($title) &&
             !empty($color)
         ) {
-            // je créé une instance de la classe Article (classe d'entité)
-            // dans le but de créer un nouvel article dans ma bdd (table article)
+
             $category = new Category();
 
-            // j'utilise les setters du titre, du contenu etc
-            // pour mettre les données voulues pour le titre, le contenu etc
             $category->setTitle($title);
             $category->setColor($color);
 
-            // j'utilise la classe EntityManagerInterface de Doctrine pour
-            // enregistrer mon entité dans la bdd dans la table article (en
-            // deux étapes avec le persist puis le flush)
             $entityManager->persist($category);
             $entityManager->flush();
 
