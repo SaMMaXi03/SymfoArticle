@@ -4,13 +4,11 @@
 
     <form action="{{ path('admin_insert_article') }}" method="get">
 
-        <label for="title">Titre</label>
-        <input type="text" name="title">
+    {#
 
-        <label for="title">Contenu</label>
-        <input type="text" name="content">
+    #}
+
+    {{ form(form) }}
 
         <input type="submit">
-
-    </form>
 {% endblock %}
