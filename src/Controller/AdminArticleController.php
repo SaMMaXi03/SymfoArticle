@@ -52,6 +52,15 @@ class AdminArticleController extends AbstractController
 
         $form = $this->createForm(ArticleType::class, $article);
 
+        $form->handleRequest($request);
+
+        if($form->isSubmitted () && $form->isValid()) {
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            $this->addFlash('success','Article enregistré !');
+        }
+
         return $this->render('admin/insert_article.html.twig', [
             'form' => $form->createView()
         ]);
