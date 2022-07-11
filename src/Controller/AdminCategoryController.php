@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminCategoryController extends AbstractController
 {
-
     /**
-     * @Route("/admin/insert-category", name="admin_insert_category", requirements={"page"="\d+"})
+     * @Route("admin/insert-category", name="admin_insert_category")
      */
     public function insertCategory(EntityManagerInterface $entityManager)
     {
+
         $category = new Category();
 
         $category->setTitle("Ecologie");
@@ -27,29 +27,31 @@ class AdminCategoryController extends AbstractController
         $entityManager->persist($category);
         $entityManager->flush();
 
+        $this->addFlash('success', 'Vous avez bien ajouté la categorie !');
+
         return new Response('OK');
     }
 
-        /**
-         * @Route("/admin/categories", name="admin_categories")
-         */
-        public function listCategories(CategoryRepository $categoryRepository)
-        {
-           $categories = $categoryRepository->findAll();
+    /**
+     * @Route("admin/categories", name="admin_list_categories")
+     */
+    public function listCategories(CategoryRepository $categoryRepository)
+    {
+        $categories = $categoryRepository->findAll();
 
-           return $this->render('admin/list_categories.html.twig', [
-               'categories' => $categories
+        return $this->render('admin/list_categories.html.twig', [
+            'categories' => $categories
         ]);
     }
 
     /**
-     * @Route("/admin/category/{id}",name="admin_show_category")
+     * @Route("admin/categories/{id}", name="admin_show_category")
      */
     public function showCategory($id, CategoryRepository $categoryRepository)
     {
         $category = $categoryRepository->find($id);
 
-        return $this->render('admin/show_category.html.twig',[
+        return $this->render('admin/show_category.html.twig', [
             'category' => $category
         ]);
     }

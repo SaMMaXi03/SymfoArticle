@@ -6,14 +6,21 @@
 
 {% block main %}
 
-    {% if article.isPublished %}
+    {% if article %}
+        {% if article.isPublished %}
 
-        <article class="article-single">
-            <h1>{{ article.title }}</h1>
-            <p>{{ article.content }}</p>
-            <p>Publié le {{ article.publishedAt | date('d-m-y') }}</p>
-        </article>
+            <article class="article-single">
+                <h1>{{ article.title }}</h1>
+                <p>{{ article.content }}</p>
+                <p>Publié le {{ article.publishedAt | date('d-m-y') }}</p>
+            </article>
 
+        {% endif %}
+
+    {% else %}
+        <p>L'article n'existe pas</p>
     {% endif %}
+
+
 
 {% endblock %}

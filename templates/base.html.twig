@@ -16,10 +16,17 @@
     <ul class="nav-items">
         <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('admin_articles') }}">Articles</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ path('admin_categories') }}">Categories</a></li>
-        {#        <li class="nav-item"><a class="nav-link" href="{{ path('list_articles') }}">Articles</a></li>#}
+        <li class="nav-item"><a class="nav-link" href="{{ path('admin_list_categories') }}">Categories</a></li>
     </ul>
 </header>
+
+{% for message in app.flashes('success') %}
+    <p class="message-success">{{ message }}</p>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <p class="message-error">{{ message }}</p>
+{% endfor %}
 
 <main>
 

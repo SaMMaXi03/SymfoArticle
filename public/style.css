@@ -71,6 +71,15 @@
     text-align: center;
 }
 
+.message-success {
+    background-color: green;
+}
+
+
+.message-error {
+    background-color: red;
+}
+
 footer {
     position: fixed;
     bottom: 0;
