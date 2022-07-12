@@ -14,8 +14,10 @@
                     <article class="article">
                         <h1>{{ article.title }}</h1>
                         <a href="{{ path('admin_article', {'id': article.id }) }}">Clique j't'ai dit</a>
+                        <br>
                         <a href="{{ path('admin_delete_article', {'id': article.id}) }}">Supprimer</a>
-                        <a href={{ path("admin_update_article", {"id": article.id}) }}> Modifiez ici</a>
+                        <br>
+                        <a href={{ path("admin_update_article", {"id": article.id}) }}>Modifiez ici</a>
                     </article>
                 {% endif %}
             {% else %}

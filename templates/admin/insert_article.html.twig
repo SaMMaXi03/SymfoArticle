@@ -1,10 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-
     {#
 
     #}
 
-    {{ form(form) }}
+    <div class="form">
+
+    {{ form_start(form) }}
+    <br>
+
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+    <br>
+    <br>
+
+    {{ form_label(form.content) }}
+    {{ form_widget(form.content) }}
+    <br>
+    <br>
+
+    {{ form_label(form.isPublished) }}
+    {{ form_widget(form.isPublished) }}
+    <br>
+    <br>
+
+    {{ form_label(form.publishedAt) }}
+    {{ form_widget(form.publishedAt) }}
+    <br>
+
+    {{ form_label(form.category) }}
+    {{ form_widget(form.category) }}
+    <br>
+    <br>
+
+    {{ form_widget(form.submit, {'attr':{'class': 'btn btn-primary'}}) }}
+
+    {{ form_end(form) }}
+
+    </div>
 {% endblock %}

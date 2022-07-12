@@ -10,7 +10,9 @@
         <article>
             <h2 style="color: {{ category.color }};">{{ category.title }}</h2>
             <a href="{{ path('admin_show_category', {'id':category.id}) }}">Rencontre les camioneurs murs et chauds</a>
+            <br>
             <a href="{{ path('admin_delete_category', {'id':category.id}) }}">Supprimer</a>
+            <br>
             <a href="{{ path("admin_update_category", {"id": category.id}) }}"> Modifiez ici</a>
         </article>
     {% endfor %}

@@ -4,6 +4,24 @@
         {#
 
         #}
+<div class="form1">
+        {{ form_start(form) }}
+        <br>
 
-        {{ form(form) }}
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+        <br>
+        <br>
+
+        {{ form_label(form.color) }}
+        {{ form_widget(form.color) }}
+        <br>
+        <br>
+
+        {{ form_widget(form.submit, {'attr':{'class': 'btn btn-primary'}}) }}
+        <br>
+        <br>
+
+        {{ form_end(form) }}
+</div>
 {% endblock %}
