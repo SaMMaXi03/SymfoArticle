@@ -4,22 +4,21 @@
         {#
 
         #}
+
 <div class="form1">
+
         {{ form_start(form) }}
         <br>
 
-        {{ form_label(form.title) }}
-        {{ form_widget(form.title) }}
-        <br>
+        {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
         <br>
 
-        {{ form_label(form.color) }}
-        {{ form_widget(form.color) }}
-        <br>
+        {{ form_label(form.color, 'Color', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.color, {'attr': {'class': 'form-control'}}) }}
         <br>
 
         {{ form_widget(form.submit, {'attr':{'class': 'btn btn-primary'}}) }}
-        <br>
         <br>
 
         {{ form_end(form) }}

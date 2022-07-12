@@ -10,18 +10,18 @@
     {{ form_start(form) }}
     <br>
 
-    {{ form_label(form.title) }}
-    {{ form_widget(form.title) }}
+        {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
     <br>
     <br>
 
-    {{ form_label(form.content) }}
-    {{ form_widget(form.content) }}
+        {{ form_label(form.content, 'Contenu', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
     <br>
     <br>
 
-    {{ form_label(form.isPublished) }}
-    {{ form_widget(form.isPublished) }}
+        {{ form_label(form.isPublished, 'Est publié ?', {'label_attr': {'class': 'form-check-label'}}) }}
+        {{ form_widget(form.isPublished, {'attr': {'class': 'form-check-label'}}) }}
     <br>
     <br>
 
