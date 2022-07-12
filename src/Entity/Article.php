@@ -38,24 +38,19 @@ class Article
     private $publishedAt;
 
     /**
-     * @return mixed
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
      */
+    private $category;
+
     public function getCategory()
     {
         return $this->category;
     }
 
-    /**
-     * @param mixed $category
-     */
     public function setCategory($category): void
     {
         $this->category = $category;
     }
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
-     */
-    private $category;
 
     public function getId(): ?int
     {
