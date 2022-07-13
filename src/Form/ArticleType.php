@@ -18,12 +18,16 @@ class ArticleType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('isPublished')
-            ->add('publishedAt')
-            ->add('category', EntityType::class,[
+            // j'ajoute le champs category pour gérer la sélection d'une
+            // catégorie pour l'article
+            // je lui mets le type "EntityType" car c'est une relation vers
+            // une entité
+            // et je parametre mon input pour qu'il affiche toutes les catégories
+            // de la bdd avec leur titre dans les options du select
+            ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'title'
             ])
-
             ->add('submit', SubmitType::class)
         ;
     }

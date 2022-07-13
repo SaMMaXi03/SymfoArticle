@@ -1,7 +1,23 @@
-{%  extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
 {% block main %}
 
-    {{ form(form) }}
+    <div class="form1">
 
+        {{ form_start(form) }}
+        <br>
+
+        {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        <br>
+
+        {{ form_label(form.color, 'Color', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.color, {'attr': {'class': 'form-control'}}) }}
+        <br>
+
+        {{ form_widget(form.submit, {'attr':{'class': 'btn btn-primary'}}) }}
+        <br>
+
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    <title>{{ "articlesList" }}</title>
+{% endblock %}
+
 {% block main %}
 
     <section>
-        <a href="{{ path('admin_insert_article') }}">Créer un article</a>
+        <a class="btn-insert" href={{ path("admin_insert_article") }}>Ajouter un article</a>
     </section>
 
     <section class="articles">

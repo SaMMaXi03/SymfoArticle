@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -38,19 +39,10 @@ class Article
     private $publishedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
      */
     private $category;
 
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    public function setCategory($category): void
-    {
-        $this->category = $category;
-    }
 
     public function getId(): ?int
     {
@@ -104,4 +96,17 @@ class Article
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
 }

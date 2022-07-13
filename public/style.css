@@ -20,6 +20,19 @@
     list-style-type: none;
 }
 
+.nav-items a {
+    color: black;
+    text-shadow: 3px 3px 3px grey;
+}
+
+.nav-items a:hover {
+    color: white;
+}
+
+.article h2 {
+    margin-left: 10%;
+}
+
 .nav-link {
     color: white;
     text-decoration: none;
