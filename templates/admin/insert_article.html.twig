@@ -12,21 +12,25 @@
 
         {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
         {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.title) }}
     <br>
     <br>
 
         {{ form_label(form.content, 'Contenu', {'label_attr': {'class': 'form-label'}}) }}
         {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.content) }}
     <br>
     <br>
 
         {{ form_label(form.isPublished, 'Publié', {'label_attr': {'class': 'form-check-label'}}) }}
         {{ form_widget(form.isPublished, {'attr': {'class': 'form-check-label'}}) }}
+        {{ form_errors(form.isPublished) }}
     <br>
     <br>
 
-    {{ form_label(form.category) }}
-    {{ form_widget(form.category) }}
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category) }}
+        {{ form_errors(form.category) }}
     <br>
     <br>
 

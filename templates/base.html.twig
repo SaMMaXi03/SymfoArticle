@@ -14,8 +14,9 @@
 <body>
 
 <header class="header-top">
-    <form method="GET" action="{{ path('admin_search_articles') }}">
+    <form class="search" method="GET" action="{{ path('admin_search_articles') }}">
         <input type="text" name="search">
+        <br>
         <input type="submit">
     </form>
     <ul class="nav-items">
