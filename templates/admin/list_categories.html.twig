@@ -3,19 +3,21 @@
 {% block main %}
 
     <section>
-        <a href="{{ path('admin_insert_category') }}">Créer un article</a>
+        <a href="{{ path('admin_insert_category') }}">Create a fast-food</a>
     </section>
 
-    <section class="articles">
+    <section class="articles1">
 
     {% for category in categories %}
         <article class="article">
             <h2 style="color: {{ category.color }};">{{ category.title }}</h2>
-            <a href="{{ path('admin_show_category', {'id':category.id}) }}">Rencontre les camioneurs murs et chauds</a>
+            <a href="{{ path('admin_show_category', {'id':category.id}) }}">Come if you are hungry</a>
             <br>
-            <a href="{{ path('admin_delete_category', {'id':category.id}) }}">Supprimer</a>
             <br>
-            <a href="{{ path("admin_update_category", {"id": category.id}) }}"> Modifiez ici</a>
+            <a href="{{ path('admin_delete_category', {'id':category.id}) }}">Delete</a>
+            <br>
+            <br>
+            <a href="{{ path("admin_update_category", {"id": category.id}) }}"> Update here</a>
         </article>
     {% endfor %}
     </section>
